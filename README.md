@@ -7,7 +7,11 @@ I previously believed that quantitative trading was an overly expensive dream fo
 
 ## Exploration Path
 0.Learn how to upload code to GitHub (yes, I forgot again).
+
 1.Install the required APIs in VS Code and connect to an IBKR account to retrieve market data, then compare the data quality between IBKR and Yahoo Finance.
+
 2.Process market data and experiment with basic trading strategies.
+
 3.Run the completed strategies in a paper trading (simulated) environment.
+
 4.Study and explore more advanced trading strategies.
