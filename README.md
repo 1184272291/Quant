@@ -1,4 +1,4 @@
-# <span style="color:red">Quant in IBKR</span>
+# Quant in IBKR
 A year ago, I began trading seriously while balancing my academic studies. Academic commitments often constrained me, as morning classes made it difficult to trade consistently.
 
 Six months ago, I transitioned to trading full time. I found that even without academic distractions, my progress in trading was limited. I was still far from being able to make a living from it, while real-world financial pressures continued to exist.
