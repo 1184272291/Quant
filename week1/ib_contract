@@ -1,0 +1,46 @@
+from ibapi.client import EClient
+from ibapi.wrapper import EWrapper
+from ibapi.contract import Contract
+import threading
+import time
+
+class TradingApp(EWrapper, EClient):
+    def __init__(self):
+        EClient.__init__(self, self)
+
+    def contractDetails(self, reqId, contractDetails):
+        c = contractDetails.contract
+        print("====== Contract Details ======")
+        print("Symbol:", c.symbol)
+        print("conId:", c.conId)
+        print("SecType:", c.secType)
+        print("Exchange:", c.exchange)
+        print("PrimaryExchange:", c.primaryExchange)
+        print("Currency:", c.currency)
+        print("MinTick:", contractDetails.minTick)
+        print("LongName:", contractDetails.longName)
+        print("================================")
+
+    def contractDetailsEnd(self, reqId):
+        print("Contract details finished.")
+        self.disconnect()
+
+    def error(self, reqId, errorTime, errorCode, errorString, advancedOrderRejectJson=None):
+        print(f"ERROR {errorCode}: {errorString}")
+
+def run_loop(app):
+    app.run()
+
+app = TradingApp()
+app.connect("127.0.0.1", 7497, clientId=1)
+
+threading.Thread(target=run_loop, args=(app,), daemon=True).start()
+time.sleep(1)
+
+contract = Contract()
+contract.symbol = "SOXS"
+contract.secType = "STK"
+contract.exchange = "SMART"
+contract.currency = "USD"
+
+app.reqContractDetails(1, contract)
